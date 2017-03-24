@@ -7,8 +7,7 @@ Group composé de :
 
 ## Contexte
 
-Voici le repository contenant le rendu du TP javascript. 
-On y trouvera notamment 9 fichiers :
+Voici le repository contenant le rendu du TP javascript. On y trouvera notamment 9 fichiers :
  - `.gitignore` : listes des fichiers ignorés par les commit git
  - `deadpool.js` : contient la classe Deadpool
  - `event-handler.js` : permet la liaison entre le main process et le rederer process (pour electron)
@@ -58,7 +57,7 @@ yarn
 
 On détaillera ici les réponses que nous propososn vis-à-vis des 'améliorations' indiquées au sein du sujet du TP :
 
- - Les poneys gagnent plus d’énergie la nuit : `poney.js : l.11`. On notera qu'ils peuvent quand même se transformer, être chevauché, etc ... malgré la nuit.
+ - [x] Les poneys gagnent plus d’énergie la nuit : `poney.js : l.11`. On notera qu'ils peuvent quand même se transformer, être chevauché, etc ... malgré la nuit.
  ```js
  if (dayTime === 'day') {
         this.tickEnergy = 5;
@@ -67,12 +66,12 @@ On détaillera ici les réponses que nous propososn vis-à-vis des 'amélioratio
       }
     });
 ```
-- Deadpool accorde son aide plus facilement, de façon inversement proportionelle au nombre de licornes actuelles  &  Les chances de succès de la transformation en licorne augmentent en corrélation avec le nombre d’énergie emagasinée par le poney  : `deadpool.js : l.37`
+ - [x] Deadpool accorde son aide plus facilement, de façon inversement proportionelle au nombre de licornes actuelles  &  Les chances de succès de la transformation en licorne augmentent en corrélation avec le nombre d’énergie emagasinée par le poney  : `deadpool.js : l.37`
 ```js
 if (energy > 100 * this.nbUnicorn) {
   this.nbUnicorn++;
 ```
-- L’énergie retombe à 0 lors d’une transformation quelque soit l’issue : `poney.js : l.26 & spider-man.js : l.18`
+ - [x] L’énergie retombe à 0 lors d’une transformation quelque soit l’issue : `poney.js : l.26 & spider-man.js : l.18`
 ```js
 this.isUnicorn = true;
 this.energy = 0;
@@ -81,7 +80,7 @@ this.energy = 0;
 this.bff.ranch[poney].setUnicorn(false);
 this.bff.ranch[poney].energy = 0;
 ```
-- Si SpiderMan utilise un poney alors ce dernier ne peut pas demander de transformation : `spider-man.js : l.18`. Ils recommencent à se transformer quelques secondes plus tard.
+ - [x] Si SpiderMan utilise un poney alors ce dernier ne peut pas demander de transformation : `spider-man.js : l.18`. Ils recommencent à se transformer quelques secondes plus tard.
  ```js
 this.bff.ranch[poney].setUnicorn(false);
 [...]
@@ -89,11 +88,11 @@ setTimeout(() => {
   this.bff.ranch[poney].transform();
 }, 2500);
 ```
-- Toute action prend du temps, pensez à utiliser les promises : `deadpool.js : l.37`
+ - [x] Toute action prend du temps, pensez à utiliser les promises : `deadpool.js : l.37`
  ```js
 return new Promise((resolve, reject) => {
 ```
-- SpiderMan et Deadpool sont uniques : `deadpool.js & spider-man.js`
+ - [x] SpiderMan et Deadpool sont uniques : `deadpool.js & spider-man.js`
  ```js
 let instance = null;
 class Deadpool {
@@ -106,7 +105,7 @@ class Deadpool {
   }
 }
 ```
-- La nuit les gens pas gentils sont plus actifs donc Deadpool a besoin de se régénérer d’autant plus, il faut être prévoyant ! `deadpool.js : l.14 & l.54`
+ - [x] La nuit les gens pas gentils sont plus actifs donc Deadpool a besoin de se régénérer d’autant plus, il faut être prévoyant ! `deadpool.js : l.14 & l.54`
  ```js
  if (dayTime === 'day') {
       this.tickDegeneration = 3;
