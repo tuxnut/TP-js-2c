@@ -7,7 +7,9 @@ Group composé de :
 
 ## Contexte
 
-Voici le repository contenant le rendu du TP javascript. On y trouvera notamment 9 fichiers :
+Voici le repository contenant le rendu du TP javascript. 
+
+On y trouvera notamment 9 fichiers :
  - `.gitignore` : listes des fichiers ignorés par les commit git
  - `deadpool.js` : contient la classe Deadpool
  - `event-handler.js` : permet la liaison entre le main process et le rederer process (pour electron)
