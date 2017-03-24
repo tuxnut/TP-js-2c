@@ -13,25 +13,29 @@ require('electron').ipcRenderer.on('transformToUnicornEvent', () => {
   'A poney has been transformed.';
   setTimeout(() => {
     document.getElementById('transformToUnicorn').innerHTML = '';
-  }, 1500);
+  }, 2000);
 });
 require('electron').ipcRenderer.on('fightingEvent', (event, amount) => {
   document.getElementById('deadpoolFighting').innerHTML =
   'Deadpool just fought ennemys and lost ' + amount + ' health points.';
   setTimeout(() => {
     document.getElementById('deadpoolFighting').innerHTML = '';
-  }, 1500);
+  }, 2000);
 });
 require('electron').ipcRenderer.on('ridingEvent', () => {
   document.getElementById('ridingEvent').innerHTML =
   'SpideMan just rode an unicorn.';
   setTimeout(() => {
     document.getElementById('ridingEvent').innerHTML = '';
-  }, 1500);
+  }, 2000);
 });
 require('electron').ipcRenderer.on('regenEvent', (event, amount) => {
   document.getElementById('regenEvent').innerHTML = 'Deadpool regenerated ' +
   amount + ' health points by using an unicorn energy.';
+  document.body.style.backgroundImage = 'url(\'bgimg.jpg\')';
+  setTimeout(() => {
+    document.body.style.backgroundImage = 'none';
+  }, 1000);
   setTimeout(() => {
     document.getElementById('regenEvent').innerHTML = '';
   }, 2500);
@@ -40,6 +44,11 @@ require('electron').ipcRenderer.on('regenEvent', (event, amount) => {
 require('electron').ipcRenderer.on('dayTimeEvent', (event, dayTime) => {
   document.getElementById('dayTime').innerHTML = 'It is now the  ' + dayTime +
   ' .';
+  if (dayTime === 'day') {
+    document.body.style.backgroundColor = '#ffffff';
+  } else {
+    document.body.style.backgroundColor = '#999999';
+  }
   setTimeout(() => {
     document.getElementById('dayTime').innerHTML = '';
   }, 2500);

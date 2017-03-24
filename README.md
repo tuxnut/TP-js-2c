@@ -15,6 +15,13 @@ Voici le repository contenant le rendu du TP javascript. On y trouvera notamment
  - `spider-man.js` : contient la classe SpiderMan
  - `yarn.lock` : renseigne sur les versions des dépendances utilisées à travers l'application
 
+Le main.js instancie et initialise l'application :
+> lancement de la fenêtre du navigateur web
+> instanciation et initalisation des objets deadpool, spiderman, et poneys.
+
+Le fichier event-handler.js :
+> récupère les event des différents fichiers et indiquent au fichier html les modifications à afficher
+
  ## Installation
 
 Voici les étapes permettant le lancement de l'application :
@@ -47,7 +54,7 @@ yarn
 
 On détaillera ici les réponses que nous propososn vis-à-vis des 'améliorations' indiquées au sein du sujet du TP :
 
- - Les poneys gagnent plus d’énergie la nuit : `poney.js : l.11`
+ - Les poneys gagnent plus d’énergie la nuit : `poney.js : l.11`. On notera qu'ils peuvent quand même se transformer, être chevauché, etc ... malgré la nuit.
  ```js
  if (dayTime === 'day') {
         this.tickEnergy = 5;
@@ -57,12 +64,12 @@ On détaillera ici les réponses que nous propososn vis-à-vis des 'amélioratio
     });
 ```
 - Deadpool accorde son aide plus facilement, de façon inversement proportionelle au nombre de licornes actuelles  &  Les chances de succès de la transformation en licorne augmentent en corrélation avec le nombre d’énergie emagasinée par le poney  : `deadpool.js : l.37`
- ```js
+```js
 if (energy > 100 * this.nbUnicorn) {
   this.nbUnicorn++;
 ```
 - L’énergie retombe à 0 lors d’une transformation quelque soit l’issue : `poney.js : l.26 & spider-man.js : l.18`
- ```js
+```js
 this.isUnicorn = true;
 this.energy = 0;
 ```
@@ -70,9 +77,13 @@ this.energy = 0;
 this.bff.ranch[poney].setUnicorn(false);
 this.bff.ranch[poney].energy = 0;
 ```
-- Si SpiderMan utilise un poney alors ce dernier ne peut pas demander de transformation : `spider-man.js : l.18`
+- Si SpiderMan utilise un poney alors ce dernier ne peut pas demander de transformation : `spider-man.js : l.18`. Ils recommencent à se transformer quelques secondes plus tard.
  ```js
 this.bff.ranch[poney].setUnicorn(false);
+[...]
+setTimeout(() => {
+  this.bff.ranch[poney].transform();
+}, 2500);
 ```
 - Toute action prend du temps, pensez à utiliser les promises : `deadpool.js : l.37`
  ```js

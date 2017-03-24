@@ -12,7 +12,7 @@ const eventTime = new EventEmitter();
 const deadpool = new Deadpool(eventTime);
 const ranch = [];
 const nbPoneys = Math.floor(Math.random() * 10) + 10;
-const spiderman = new SpiderMan(deadpool, eventTime);
+const spiderman = new SpiderMan(deadpool);
 let dayTime = 'day';
 let win;
 let contents;
@@ -26,18 +26,15 @@ function viewSimulation() {
 }
 
 function createWindow() {
-  // Create the browser window. Preparing to send contents;
-  win = new BrowserWindow({width: 800, height: 600});
+  win = new BrowserWindow({width: 564, height: 536});
   contents = win.webContents;
 
-  // And load the index.html of the app.
   win.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
     slashes: true
   }));
 
-  // Emitted when the window is closed.
   win.on('closed', () => {
     win = null;
   });

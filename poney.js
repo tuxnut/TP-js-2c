@@ -21,7 +21,7 @@ class Poneys {
   transform() {
     const tryTransform = setInterval(() => {
       if (this.isUnicorn === false) {
-        this.manager.transformUnicorn(this.energy)
+        this.manager.transformToUnicorn(this.energy)
 				.then(() => {
   this.isUnicorn = true;
   this.energy = 0;
@@ -47,10 +47,6 @@ class Poneys {
         this.energy += 20;
       }
     }, 750);
-  }
-
-  getPoneyState() {
-    return this.isUnicorn;
   }
 
   setUnicorn(state) {

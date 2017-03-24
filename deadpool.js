@@ -31,7 +31,7 @@ class Deadpool {
   }
 
 	/** +Energy +odds to transform & +nbUnicorn -odds to transform */
-  transformUnicorn(energy) {
+  transformToUnicorn(energy) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         if (energy > 100 * this.nbUnicorn) {
